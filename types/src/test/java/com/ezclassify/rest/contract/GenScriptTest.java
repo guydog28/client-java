@@ -171,16 +171,7 @@ class GenScriptTest {
         Files.readString(outputDir.resolve("ValidationError.java"))
             .contains("ValidationSeverity severity"));
     assertTrue(
-        Files.readString(outputDir.resolve("AccessScenarioAssessment.java"))
-            .contains("AccessScenarioBasis basis"));
-    assertTrue(
-        Files.readString(outputDir.resolve("AccessScenarioAssessment.java"))
-            .contains("EffectiveDocumentTarget target"));
-    assertTrue(
         Files.readString(outputDir.resolve("DocumentAuditReport.java")).contains("String whole"));
-    assertTrue(
-        Files.readString(outputDir.resolve("DocumentAccessAssessment.java"))
-            .contains("AccessScenarioAssessment projected"));
     assertTrue(Files.readString(outputDir.resolve("RuleCondition.java")).contains("Object value"));
     assertTrue(
         Files.readString(outputDir.resolve("TraceRepair.java"))
@@ -286,9 +277,9 @@ class GenScriptTest {
     Path openapi = moduleDir.resolveSibling("vendor/spec/openapi.yaml");
     String source = Files.readString(openapi);
     String nullableTarget =
-        "        target:\n"
+        "        wholeValidation:\n"
             + "          anyOf:\n"
-            + "            - $ref: \"#/components/schemas/EffectiveDocumentTarget\"\n"
+            + "            - $ref: \"#/components/schemas/MarkingValidation\"\n"
             + "            - type: \"null\"\n";
     assertTrue(source.contains(nullableTarget), "the reviewed nullable target must be present");
     Path ambiguousOpenapi = Files.createTempFile("java-ambiguous-openapi", ".yaml");
@@ -310,7 +301,7 @@ class GenScriptTest {
             .start();
     String output = new String(process.getInputStream().readAllBytes(), StandardCharsets.UTF_8);
     assertFalse(process.waitFor() == 0, "ambiguous public union must be rejected");
-    assertTrue(output.contains("unsupported public union at AccessScenarioAssessment.target"));
+    assertTrue(output.contains("unsupported public union at DocumentAuditReport.wholeValidation"));
   }
 
   @Test

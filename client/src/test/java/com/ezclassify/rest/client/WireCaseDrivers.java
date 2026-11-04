@@ -25,7 +25,6 @@ final class WireCaseDrivers {
           Map.entry("ctx-describe.ok", Boundary.PUBLIC),
           Map.entry("ctx-document-audit.ok", Boundary.PUBLIC),
           Map.entry("ctx-document-audit.empty-text", Boundary.PRIVATE),
-          Map.entry("ctx-document-assess-access.ok", Boundary.PUBLIC),
           Map.entry("ctx-describe.presets", Boundary.PUBLIC),
           Map.entry("ctx-describe.crosswalks", Boundary.PUBLIC),
           Map.entry("ctx-scheme-summary.ok", Boundary.PUBLIC),
@@ -336,14 +335,6 @@ final class WireCaseDrivers {
           ctx.document()
               .audit(
                   text(body, "text"),
-                  null,
-                  DocumentResponseProfile.fromWire(text(body, "responseProfile")));
-      case "document/assess-access" ->
-          ctx.document()
-              .assessAccess(
-                  text(body, "text"),
-                  attributes(body),
-                  body.has("context") ? Json.toMap(body.getAsJsonObject("context")) : null,
                   null,
                   DocumentResponseProfile.fromWire(text(body, "responseProfile")));
       default -> throw new AssertionError("unowned public POST " + c.id());

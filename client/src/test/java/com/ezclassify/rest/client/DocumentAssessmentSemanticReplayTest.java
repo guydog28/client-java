@@ -5,7 +5,6 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import com.ezclassify.rest.contract.ContextAccessRequirementsResult;
-import com.ezclassify.rest.contract.ContextDocumentAccessAssessmentResult;
 import com.ezclassify.rest.contract.ContextDocumentAuditResult;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
@@ -288,7 +287,6 @@ class DocumentAssessmentSemanticReplayTest {
   private static String route(String operation) {
     return switch (operation) {
       case "auditDocument", "cliDocument" -> "document/audit";
-      case "assessDocumentAccess" -> "document/assess-access";
       case "documentAccessRequirements" -> "access/describe-requirements";
       default -> throw new AssertionError("unsupported semantic operation: " + operation);
     };
@@ -299,8 +297,6 @@ class DocumentAssessmentSemanticReplayTest {
         switch (operation) {
           case "auditDocument", "cliDocument" ->
               WireJson.fromTree(output, ContextDocumentAuditResult.class);
-          case "assessDocumentAccess" ->
-              WireJson.fromTree(output, ContextDocumentAccessAssessmentResult.class);
           case "documentAccessRequirements" ->
               WireJson.fromTree(output, ContextAccessRequirementsResult.class);
           default -> throw new AssertionError("unsupported semantic operation: " + operation);
@@ -369,17 +365,9 @@ class DocumentAssessmentSemanticReplayTest {
   }
 
   private static void roundTripPublicEnvelope(JsonObject testCase, JsonElement output) {
-    String operation = string(testCase, "operation");
-    if ("assessDocumentAccess".equals(operation)) {
-      ContextDocumentAccessAssessmentResult dto =
-          WireJson.fromTree(output, ContextDocumentAccessAssessmentResult.class);
-      assertNotNull(dto.resolution());
-      assertNotNull(WireJson.toTree(dto));
-    } else {
-      ContextDocumentAuditResult dto = WireJson.fromTree(output, ContextDocumentAuditResult.class);
-      assertNotNull(dto.resolution());
-      assertNotNull(WireJson.toTree(dto));
-    }
+    ContextDocumentAuditResult dto = WireJson.fromTree(output, ContextDocumentAuditResult.class);
+    assertNotNull(dto.resolution());
+    assertNotNull(WireJson.toTree(dto));
   }
 
   private static void assertAssertion(JsonElement root, JsonObject assertion, String requestId) {

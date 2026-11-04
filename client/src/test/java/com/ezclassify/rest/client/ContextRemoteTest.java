@@ -13,7 +13,6 @@ import com.ezclassify.rest.contract.ConceptDescription;
 import com.ezclassify.rest.contract.ConceptNoticeType;
 import com.ezclassify.rest.contract.ConceptView;
 import com.ezclassify.rest.contract.ContextCrosswalkTranslationResult;
-import com.ezclassify.rest.contract.ContextDocumentAccessAssessmentResult;
 import com.ezclassify.rest.contract.ContextDocumentAuditResult;
 import com.ezclassify.rest.contract.DiffResult;
 import com.ezclassify.rest.contract.DocumentAuditReport;
@@ -217,17 +216,6 @@ class ContextRemoteTest {
         "/crosswalk/translate",
         "{\"crosswalk\":{\"kind\":\"crosswalk\",\"id\":\"state-to-district\",\"version\":\"1.0.0\",\"digest\":\"sha256:crosswalk\"},\"sourceScheme\":{\"kind\":\"scheme\",\"id\":\"state\",\"version\":\"1.0.0\",\"digest\":\"sha256:state\"},\"targetScheme\":{\"kind\":\"scheme\",\"id\":\"district\",\"version\":\"1.0.0\",\"digest\":\"sha256:district\"},\"source\":{\"valid\":true,\"inputWasValid\":true,\"rendered\":\"H\",\"assertions\":[],\"errors\":[],\"warnings\":[],\"appliedFixes\":[],\"assessment\":{\"emitted\":[],\"omitted\":[],\"collapsed\":[],\"conflicts\":[],\"unrepresentable\":[]},\"notices\":[]},\"outcomes\":[],\"selections\":[],\"target\":{\"valid\":true,\"inputWasValid\":false,\"rendered\":\"D-H\",\"assertions\":[],\"errors\":[],\"warnings\":[],\"appliedFixes\":[],\"assessment\":{\"emitted\":[],\"omitted\":[],\"collapsed\":[],\"conflicts\":[],\"unrepresentable\":[]},\"notices\":[]},\"status\":\"complete\"}");
     ROUTES.put("/document/audit", documentAuditJson());
-    ROUTES.put(
-        "/document/assess-access",
-        "{\"audit\":"
-            + documentAuditJson()
-            + ",\"authored\":"
-            + scenarioJson("authored", false, "granted")
-            + ",\"authoritative\":"
-            + scenarioJson("authoritative", false, "denied")
-            + ",\"projected\":"
-            + scenarioJson("projected", true, "not-evaluated")
-            + "}");
   }
 
   @BeforeAll
@@ -1465,29 +1453,6 @@ class ContextRemoteTest {
   }
 
   @Test
-  void documentAssessAccessPreservesThreeScenarioSemanticsAndProjection() {
-    ContextDocumentAccessAssessmentResult envelope =
-        connect()
-            .document()
-            .assessAccess(
-                "a doc",
-                Map.of("clearance", "HIGH"),
-                Map.of("location", "office"),
-                null,
-                DocumentResponseProfile.SUMMARY);
-
-    assertEquals("granted", envelope.result().authored().status().toWire());
-    assertEquals("denied", envelope.result().authoritative().status().toWire());
-    assertEquals("not-evaluated", envelope.result().projected().status().toWire());
-    assertTrue(envelope.result().projected().advisory());
-    assertNull(envelope.result().projected().decision());
-    assertEquals("acme-ctx", envelope.resolution().contextId());
-    assertEquals("summary", lastBody.contains("\"responseProfile\":\"summary\"") ? "summary" : "");
-    assertTrue(lastBody.contains("\"userAttributes\""));
-    assertTrue(lastBody.contains("\"context\""));
-  }
-
-  @Test
   void ctxOpPropagatesServerError() {
     EzClassifyContext ctx = EzClassifyClient.connect(baseUrl, "acme-ctx", "1.0.0");
     EzClassifyClientException ex =
@@ -1572,18 +1537,4 @@ class ContextRemoteTest {
     return "{\"markingRequirements\":{\"whole\":true,\"part\":true},\"whole\":\"RED//ORG\",\"wholes\":[{\"marking\":\"RED//ORG\",\"start\":0,\"end\":8,\"offsetEncoding\":\"utf8-bytes\"}],\"wholeValidation\":{\"assertions\":[{\"categoryId\":\"level\",\"conceptId\":\"RED\",\"confidence\":\"certain\",\"source\":\"parse\"},{\"categoryId\":\"org\",\"conceptId\":\"ORG\",\"confidence\":\"certain\",\"source\":\"parse\"}],\"recognition\":{\"status\":\"complete\",\"inputFormat\":\"marking/banner\",\"role\":\"whole\",\"surface\":\"marking\",\"unmatched\":[]},\"valid\":true,\"inputWasValid\":true,\"errors\":[],\"proposedFixes\":[],\"appliedFixes\":[],\"rendered\":\"RED//ORG\"},\"parts\":[{\"marking\":\"AMBER\",\"text\":\"para\",\"start\":10,\"end\":14,\"offsetEncoding\":\"utf8-bytes\",\"scopeId\":\"part-1\",\"validation\":{\"assertions\":[{\"categoryId\":\"level\",\"conceptId\":\"AMBER\",\"confidence\":\"certain\",\"source\":\"parse\"}],\"recognition\":{\"status\":\"complete\",\"inputFormat\":\"marking/portion\",\"role\":\"part\",\"surface\":\"marking\",\"unmatched\":[]},\"valid\":true,\"inputWasValid\":false,\"errors\":[],\"proposedFixes\":[],\"appliedFixes\":[{\"ruleId\":\"_recognition_case\",\"action\":\"reorder\",\"message\":\"Read `amber` as `AMBER` (case).\"}],\"rendered\":\"AMBER\"}}],\"wholeCoversParts\":{\"covered\":true,\"missing\":[],\"missingLabels\":[],\"excess\":[],\"excessLabels\":[],\"rendered\":\"RED//ORG\"},\"unmarkedSpans\":[{\"start\":20,\"end\":25,\"offsetEncoding\":\"utf8-bytes\",\"text\":\"extra\"}],\"proceduralFlags\":[\"unmarked-content\"],\"overallVerdict\":\"mixed\",\"vocabulary\":{\"whole\":{\"singular\":\"banner\",\"plural\":\"banners\"},\"part\":{\"singular\":\"portion\",\"plural\":\"portions\"}},\"documentDigest\":\"sha256:document\",\"guideAssessment\":null,\"limitations\":[]}";
   }
 
-  private static String scenarioJson(String basis, boolean advisory, String status) {
-    String decision = "not-evaluated".equals(status) ? "null" : ROUTES.get("/access/check");
-    return "{\"basis\":\""
-        + basis
-        + "\",\"advisory\":"
-        + advisory
-        + ",\"status\":\""
-        + status
-        + "\",\"target\":{\"basis\":\""
-        + basis
-        + "\",\"marking\":\"RED//ORG\",\"assertions\":[],\"authoredWhole\":\"RED//ORG\",\"authoredParts\":[],\"determinedGuideRequiredWhole\":null,\"projectedGuideRequiredWhole\":null},\"decision\":"
-        + decision
-        + ",\"contentRequirements\":[],\"contextRequirements\":[],\"limitations\":[]}";
-  }
 }

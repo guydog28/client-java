@@ -320,18 +320,6 @@ class RequestSchemaConformanceTest {
             "document/audit",
             x ->
                 x.document().audit("document text", DETERMINATIONS, DocumentResponseProfile.FULL)));
-    c.put(
-        "document.assess-access",
-        new Case(
-            "document/assess-access",
-            x ->
-                x.document()
-                    .assessAccess(
-                        "document text",
-                        Map.of("clearance", "high"),
-                        Map.of("project", "p1"),
-                        DETERMINATIONS,
-                        DocumentResponseProfile.FULL)));
     return c;
   }
 
