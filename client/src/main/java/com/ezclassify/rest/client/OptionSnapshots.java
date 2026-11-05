@@ -1,8 +1,8 @@
 package com.ezclassify.rest.client;
 
-import com.ezclassify.rest.contract.Assertion;
-import com.ezclassify.rest.contract.ExpandableStringEnum;
-import com.ezclassify.rest.contract.ProcessingContext;
+import com.ezclassify.contract.Assertion;
+import com.ezclassify.contract.ExpandableStringEnum;
+import com.ezclassify.contract.ProcessingContext;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
 import java.lang.reflect.Array;
@@ -44,7 +44,7 @@ final class OptionSnapshots {
     if (value instanceof List<?> list) return list.stream().map(OptionSnapshots::copy).toList();
     if (value != null
         && value.getClass().isRecord()
-        && value.getClass().getPackageName().equals("com.ezclassify.rest.contract")) {
+        && value.getClass().getPackageName().equals("com.ezclassify.contract")) {
       RecordComponent[] components = value.getClass().getRecordComponents();
       Class<?>[] types = new Class<?>[components.length];
       Object[] values = new Object[components.length];

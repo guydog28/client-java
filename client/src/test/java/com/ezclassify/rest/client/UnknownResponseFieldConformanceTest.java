@@ -4,8 +4,8 @@ import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import com.ezclassify.rest.contract.ContextSchemeProcessResult;
-import com.ezclassify.rest.contract.ProcessResult;
+import com.ezclassify.contract.ContextSchemeProcessResult;
+import com.ezclassify.contract.ProcessResult;
 import java.io.IOException;
 import java.util.Map;
 import org.junit.jupiter.api.AfterAll;

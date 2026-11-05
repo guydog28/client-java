@@ -1,4 +1,4 @@
-package com.ezclassify.rest.contract;
+package com.ezclassify.contract;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;

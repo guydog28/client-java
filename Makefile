@@ -6,8 +6,8 @@
 # ezclassify-spec-bot identity, and .github/workflows/vendor-readonly.yml
 # rejects any vendor/ commit that is not.
 SCHEMAS_DIR := vendor/spec/json-schemas
-OUT_DIR     := types/target/generated-sources/java/com/ezclassify/rest/contract
-GEN_PKG     := com.ezclassify.rest.contract
+OUT_DIR     := types/target/generated-sources/java/com/ezclassify/contract
+GEN_PKG     := com.ezclassify.contract
 # Use the reviewed wrapper by default so developer and CI Maven versions match.
 # An installed, compatible Maven remains selectable with make MVN=mvn.
 MVN         ?= ./mvnw
@@ -57,7 +57,7 @@ check-api-surface:
 	node scripts/api-surface.mjs --check
 
 check-architecture:
-	$(MVN) --batch-mode --no-transfer-progress -pl types,client generate-sources
+	$(MVN) --batch-mode --no-transfer-progress -pl types,client -am compile
 	node scripts/check-architecture.mjs
 
 check-workflows:

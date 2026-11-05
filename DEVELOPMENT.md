@@ -54,7 +54,7 @@ transport/decoder helpers are outside the public reference.
 
 - **The spec is vendored, not authored here.** The wire types in
   the [`types/`](types/) module are generated from OpenAPI and JSON Schemas under
-  [`vendor/spec/`](vendor/spec/). The Java package is `com.ezclassify.rest.contract`.
+  [`vendor/spec/`](vendor/spec/). The Java package is `com.ezclassify.contract`.
   The OpenAPI document is owned by the [ezclassify/contracts](https://github.com/ezclassify/contracts) repo and
   mirrored into this repo by the EzClassify spec bot, which commits as
   `ezclassify-spec-bot[bot]`.

@@ -1,4 +1,4 @@
-package com.ezclassify.rest.contract;
+package com.ezclassify.contract;
 
 /** Utilities for translating frozen UTF-8 byte spans to Java UTF-16 string indices. */
 public final class Utf8Offsets {

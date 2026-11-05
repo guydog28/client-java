@@ -22,7 +22,7 @@ contract; transport code does not own engine policy.
 
 [`types/scripts/gen.mjs`](types/scripts/gen.mjs) consumes the vendored OpenAPI document and JSON Schemas.
 Maven runs it during `generate-sources`. Its wire types go to
-`types/target/generated-sources/java/com/ezclassify/rest/contract/`. Its one other
+`types/target/generated-sources/java/com/ezclassify/contract/`. Its one other
 output, run from the client module, is the package-private `ResponseShapes`
 table in `client/target/generated-sources/java/com/ezclassify/rest/client/`: the
 members every success response must carry, read from the OpenAPI `required`
@@ -88,7 +88,7 @@ response gave it. `fromWire` stays strict for a token a caller types in.
 
 ## Handwritten seams
 
-Handwritten files in [`types/src/main/java/com/ezclassify/rest/contract/`](types/src/main/java/com/ezclassify/rest/contract/) are a closed,
+Handwritten files in [`types/src/main/java/com/ezclassify/contract/`](types/src/main/java/com/ezclassify/contract/) are a closed,
 reviewed set:
 
 - Encoding boundary: `Utf8Offsets`.

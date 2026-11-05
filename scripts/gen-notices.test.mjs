@@ -12,7 +12,7 @@ const GSON = '     (Apache-2.0) Gson (com.google.code.gson:gson:2.13.1 - https:/
 const SNAKEYAML =
   '     (Apache License, Version 2.0) SnakeYAML (org.yaml:snakeyaml:2.2 - https://bitbucket.org/snakeyaml/snakeyaml)';
 const INTERNAL =
-  '     (Apache License 2.0) EzClassify REST Client for Java (com.ezclassify.rest:client:1.0.0 - https://github.com/ezclassify/client-java)';
+  '     (Apache License 2.0) EzClassify REST Client for Java (com.ezclassify:ezclassify-rest-client:1.0.0 - https://github.com/ezclassify/sdk-java)';
 
 const BEGIN = '<!-- GENERATED-CLOSURE:BEGIN (scripts/gen-notices.mjs; do not edit by hand) -->';
 const END = '<!-- GENERATED-CLOSURE:END -->';
@@ -66,7 +66,7 @@ test('reports only third-party components, not reactor-internal ones', () => {
 
 test('treats nested EzClassify Maven groups as reactor-internal', () => {
   const nestedContract =
-    '     (Apache License 2.0) EzClassify REST Contract for Java (com.ezclassify.rest:contract:1.0.0 - https://github.com/ezclassify/client-java)';
+    '     (Apache License 2.0) EzClassify REST Contract for Java (com.ezclassify:ezclassify-contract:1.0.0 - https://github.com/ezclassify/sdk-java)';
   assert.match(check(fixture({ closure: [INTERNAL, nestedContract, GSON, SNAKEYAML] })), /2 third-party components/);
 });
 

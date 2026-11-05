@@ -1,9 +1,9 @@
 package com.ezclassify.rest.client;
 
-import com.ezclassify.rest.contract.ContextDocumentAuditResult;
-import com.ezclassify.rest.contract.DocumentResponseProfile;
-import com.ezclassify.rest.contract.GuideDeterminationInput;
-import com.ezclassify.rest.contract.Utf8Offsets;
+import com.ezclassify.contract.ContextDocumentAuditResult;
+import com.ezclassify.contract.DocumentResponseProfile;
+import com.ezclassify.contract.GuideDeterminationInput;
+import com.ezclassify.contract.Utf8Offsets;
 import com.google.gson.JsonObject;
 
 /** Document operations bound to one immutable server-resolved Context composition. */

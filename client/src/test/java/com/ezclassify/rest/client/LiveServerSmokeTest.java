@@ -5,9 +5,9 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import com.ezclassify.rest.contract.ProcessResult;
-import com.ezclassify.rest.contract.RecognitionStatus;
-import com.ezclassify.rest.contract.RenderPreservation;
+import com.ezclassify.contract.ProcessResult;
+import com.ezclassify.contract.RecognitionStatus;
+import com.ezclassify.contract.RenderPreservation;
 import java.util.List;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;

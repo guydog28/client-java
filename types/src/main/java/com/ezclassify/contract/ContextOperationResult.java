@@ -1,4 +1,4 @@
-package com.ezclassify.rest.contract;
+package com.ezclassify.contract;
 
 import java.util.List;
 

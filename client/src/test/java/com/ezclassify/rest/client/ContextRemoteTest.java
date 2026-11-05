@@ -2,45 +2,45 @@ package com.ezclassify.rest.client;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import com.ezclassify.rest.contract.AccessDecision;
-import com.ezclassify.rest.contract.AccessRequirementsDescription;
-import com.ezclassify.rest.contract.AccessRuleDescription;
-import com.ezclassify.rest.contract.AggregateResult;
-import com.ezclassify.rest.contract.Assertion;
-import com.ezclassify.rest.contract.AssertionConfidence;
-import com.ezclassify.rest.contract.CheckCoverageResult;
-import com.ezclassify.rest.contract.ConceptDescription;
-import com.ezclassify.rest.contract.ConceptNoticeType;
-import com.ezclassify.rest.contract.ConceptView;
-import com.ezclassify.rest.contract.ContextCrosswalkTranslationResult;
-import com.ezclassify.rest.contract.ContextDocumentAuditResult;
-import com.ezclassify.rest.contract.DiffResult;
-import com.ezclassify.rest.contract.DocumentAuditReport;
-import com.ezclassify.rest.contract.DocumentOverallVerdict;
-import com.ezclassify.rest.contract.DocumentResponseProfile;
-import com.ezclassify.rest.contract.EvaluationResult;
-import com.ezclassify.rest.contract.ExplanationTrace;
-import com.ezclassify.rest.contract.FilterResult;
-import com.ezclassify.rest.contract.FixAction;
-import com.ezclassify.rest.contract.GuideBreakdownEntry;
-import com.ezclassify.rest.contract.GuideScanResult;
-import com.ezclassify.rest.contract.GuideViewResponse;
-import com.ezclassify.rest.contract.Notice;
-import com.ezclassify.rest.contract.ProcessResult;
-import com.ezclassify.rest.contract.ProcessingContext;
-import com.ezclassify.rest.contract.ProcessingRole;
-import com.ezclassify.rest.contract.RecognitionCorrectionReason;
-import com.ezclassify.rest.contract.RecognitionStatus;
-import com.ezclassify.rest.contract.RenderPreservation;
-import com.ezclassify.rest.contract.RuleDescription;
-import com.ezclassify.rest.contract.ScanResponseBody;
-import com.ezclassify.rest.contract.ScanResult;
-import com.ezclassify.rest.contract.ScanStatus;
-import com.ezclassify.rest.contract.SchemeViewResponse;
-import com.ezclassify.rest.contract.SuggestResult;
-import com.ezclassify.rest.contract.Term;
-import com.ezclassify.rest.contract.ValidateResult;
-import com.ezclassify.rest.contract.ValidationError;
+import com.ezclassify.contract.AccessDecision;
+import com.ezclassify.contract.AccessRequirementsDescription;
+import com.ezclassify.contract.AccessRuleDescription;
+import com.ezclassify.contract.AggregateResult;
+import com.ezclassify.contract.Assertion;
+import com.ezclassify.contract.AssertionConfidence;
+import com.ezclassify.contract.CheckCoverageResult;
+import com.ezclassify.contract.ConceptDescription;
+import com.ezclassify.contract.ConceptNoticeType;
+import com.ezclassify.contract.ConceptView;
+import com.ezclassify.contract.ContextCrosswalkTranslationResult;
+import com.ezclassify.contract.ContextDocumentAuditResult;
+import com.ezclassify.contract.DiffResult;
+import com.ezclassify.contract.DocumentAuditReport;
+import com.ezclassify.contract.DocumentOverallVerdict;
+import com.ezclassify.contract.DocumentResponseProfile;
+import com.ezclassify.contract.EvaluationResult;
+import com.ezclassify.contract.ExplanationTrace;
+import com.ezclassify.contract.FilterResult;
+import com.ezclassify.contract.FixAction;
+import com.ezclassify.contract.GuideBreakdownEntry;
+import com.ezclassify.contract.GuideScanResult;
+import com.ezclassify.contract.GuideViewResponse;
+import com.ezclassify.contract.Notice;
+import com.ezclassify.contract.ProcessResult;
+import com.ezclassify.contract.ProcessingContext;
+import com.ezclassify.contract.ProcessingRole;
+import com.ezclassify.contract.RecognitionCorrectionReason;
+import com.ezclassify.contract.RecognitionStatus;
+import com.ezclassify.contract.RenderPreservation;
+import com.ezclassify.contract.RuleDescription;
+import com.ezclassify.contract.ScanResponseBody;
+import com.ezclassify.contract.ScanResult;
+import com.ezclassify.contract.ScanStatus;
+import com.ezclassify.contract.SchemeViewResponse;
+import com.ezclassify.contract.SuggestResult;
+import com.ezclassify.contract.Term;
+import com.ezclassify.contract.ValidateResult;
+import com.ezclassify.contract.ValidationError;
 import com.google.gson.JsonParser;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
@@ -202,7 +202,7 @@ class ContextRemoteTest {
             + "\"dependsOn\":[],\"dependsOnNames\":[],\"overrides\":[],\"overrideNames\":[]}]}");
     ROUTES.put(
         "/access/check",
-        "{\"granted\":true,\"provenance\":{\"providerId\":\"broker:access-rule:srcref:x\",\"attribution\":{\"name\":\"Policy source\",\"license\":\"internal\",\"licenseUrl\":null,\"citation\":\"Policy source snapshot\"},\"reproducibility\":\"reproducible\",\"snapshotId\":\"snap-7\",\"locator\":\"memory://access\"},\"rules\":[{\"activation\":{\"matched\":true,\"assertions\":[],\"contextPaths\":[]},\"comparisons\":[{\"left\":{\"source\":\"subject\",\"path\":\"clearance\",\"categoryId\":null,\"assertions\":[],\"value\":\"HIGH\"},\"operator\":\"equals\",\"right\":{\"source\":\"literal\",\"path\":null,\"categoryId\":null,\"assertions\":[],\"value\":\"HIGH\"},\"matched\":true,\"missing\":[]}],\"granted\":true,\"name\":\"Clr\",\"reason\":\"clearance matched\",\"rule\":{\"artifact\":{\"kind\":\"access\",\"id\":\"ap\",\"version\":\"1.0.0\",\"digest\":\"sha256:access\"},\"ruleId\":\"r1\",\"ruleDigest\":\"sha256:r1\",\"source\":{\"providerId\":\"broker:access-rule:srcref:x\",\"reproducibility\":\"reproducible\",\"snapshotId\":\"snap-7\"}},\"ruleIndex\":0,\"skipped\":false}]}");
+        "{\"granted\":true,\"warnings\":[],\"provenance\":{\"providerId\":\"broker:access-rule:srcref:x\",\"attribution\":{\"name\":\"Policy source\",\"license\":\"internal\",\"licenseUrl\":null,\"citation\":\"Policy source snapshot\"},\"reproducibility\":\"reproducible\",\"snapshotId\":\"snap-7\",\"locator\":\"memory://access\"},\"rules\":[{\"activation\":{\"matched\":true,\"assertions\":[],\"contextPaths\":[]},\"comparisons\":[{\"left\":{\"source\":\"subject\",\"path\":\"clearance\",\"categoryId\":null,\"assertions\":[],\"value\":\"HIGH\"},\"operator\":\"equals\",\"right\":{\"source\":\"literal\",\"path\":null,\"categoryId\":null,\"assertions\":[],\"value\":\"HIGH\"},\"matched\":true,\"missing\":[]}],\"granted\":true,\"name\":\"Clr\",\"reason\":\"clearance matched\",\"rule\":{\"artifact\":{\"kind\":\"access\",\"id\":\"ap\",\"version\":\"1.0.0\",\"digest\":\"sha256:access\"},\"ruleId\":\"r1\",\"ruleDigest\":\"sha256:r1\",\"source\":{\"providerId\":\"broker:access-rule:srcref:x\",\"reproducibility\":\"reproducible\",\"snapshotId\":\"snap-7\"}},\"ruleIndex\":0,\"skipped\":false}]}");
     ROUTES.put(
         "/access/describe-requirements",
         "{\"marking\":\"RED//ORG\",\"assertions\":[],\"assertionDisplays\":[],\"access\":{\"kind\":\"access\",\"id\":\"ap\",\"version\":\"1.0.0\",\"digest\":\"sha256:access\"},\"scheme\":{\"kind\":\"scheme\",\"id\":\"s\",\"version\":\"1.0.0\",\"digest\":\"sha256:scheme\"},\"appliedRules\":[{\"artifact\":{\"kind\":\"access\",\"id\":\"ap\",\"version\":\"1.0.0\",\"digest\":\"sha256:access\"},\"ruleId\":\"r1\",\"ruleDigest\":\"sha256:r1\",\"source\":null}],\"rules\":[],\"combinedRequirementText\":\"Org members only\",\"combinedAttributesNeeded\":[\"membership\"],\"lines\":[]}");
@@ -1536,5 +1536,4 @@ class ContextRemoteTest {
   private static String documentAuditJson() {
     return "{\"markingRequirements\":{\"whole\":true,\"part\":true},\"whole\":\"RED//ORG\",\"wholes\":[{\"marking\":\"RED//ORG\",\"start\":0,\"end\":8,\"offsetEncoding\":\"utf8-bytes\"}],\"wholeValidation\":{\"assertions\":[{\"categoryId\":\"level\",\"conceptId\":\"RED\",\"confidence\":\"certain\",\"source\":\"parse\"},{\"categoryId\":\"org\",\"conceptId\":\"ORG\",\"confidence\":\"certain\",\"source\":\"parse\"}],\"recognition\":{\"status\":\"complete\",\"inputFormat\":\"marking/banner\",\"role\":\"whole\",\"surface\":\"marking\",\"unmatched\":[]},\"valid\":true,\"inputWasValid\":true,\"errors\":[],\"proposedFixes\":[],\"appliedFixes\":[],\"rendered\":\"RED//ORG\"},\"parts\":[{\"marking\":\"AMBER\",\"text\":\"para\",\"start\":10,\"end\":14,\"offsetEncoding\":\"utf8-bytes\",\"scopeId\":\"part-1\",\"validation\":{\"assertions\":[{\"categoryId\":\"level\",\"conceptId\":\"AMBER\",\"confidence\":\"certain\",\"source\":\"parse\"}],\"recognition\":{\"status\":\"complete\",\"inputFormat\":\"marking/portion\",\"role\":\"part\",\"surface\":\"marking\",\"unmatched\":[]},\"valid\":true,\"inputWasValid\":false,\"errors\":[],\"proposedFixes\":[],\"appliedFixes\":[{\"ruleId\":\"_recognition_case\",\"action\":\"reorder\",\"message\":\"Read `amber` as `AMBER` (case).\"}],\"rendered\":\"AMBER\"}}],\"wholeCoversParts\":{\"covered\":true,\"missing\":[],\"missingLabels\":[],\"excess\":[],\"excessLabels\":[],\"rendered\":\"RED//ORG\"},\"unmarkedSpans\":[{\"start\":20,\"end\":25,\"offsetEncoding\":\"utf8-bytes\",\"text\":\"extra\"}],\"proceduralFlags\":[\"unmarked-content\"],\"overallVerdict\":\"mixed\",\"vocabulary\":{\"whole\":{\"singular\":\"banner\",\"plural\":\"banners\"},\"part\":{\"singular\":\"portion\",\"plural\":\"portions\"}},\"documentDigest\":\"sha256:document\",\"guideAssessment\":null,\"limitations\":[]}";
   }
-
 }

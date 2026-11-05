@@ -6,22 +6,22 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-import com.ezclassify.rest.contract.Assertion;
-import com.ezclassify.rest.contract.AssertionConfidence;
-import com.ezclassify.rest.contract.ContextCrosswalkTranslationResult;
-import com.ezclassify.rest.contract.ContextDocumentAuditResult;
-import com.ezclassify.rest.contract.ContextResolution;
-import com.ezclassify.rest.contract.ContextSchemeDiffResult;
-import com.ezclassify.rest.contract.ContextSchemeProcessResult;
-import com.ezclassify.rest.contract.ContextSchemeScanResult;
-import com.ezclassify.rest.contract.CrosswalkOutcome;
-import com.ezclassify.rest.contract.DocumentResponseProfile;
-import com.ezclassify.rest.contract.ExpandableStringEnum;
-import com.ezclassify.rest.contract.GuideDeterminationInput;
-import com.ezclassify.rest.contract.GuideFindingDecision;
-import com.ezclassify.rest.contract.GuideFindingDetermination;
-import com.ezclassify.rest.contract.ProcessResult;
-import com.ezclassify.rest.contract.ScanLimits;
+import com.ezclassify.contract.Assertion;
+import com.ezclassify.contract.AssertionConfidence;
+import com.ezclassify.contract.ContextCrosswalkTranslationResult;
+import com.ezclassify.contract.ContextDocumentAuditResult;
+import com.ezclassify.contract.ContextResolution;
+import com.ezclassify.contract.ContextSchemeDiffResult;
+import com.ezclassify.contract.ContextSchemeProcessResult;
+import com.ezclassify.contract.ContextSchemeScanResult;
+import com.ezclassify.contract.CrosswalkOutcome;
+import com.ezclassify.contract.DocumentResponseProfile;
+import com.ezclassify.contract.ExpandableStringEnum;
+import com.ezclassify.contract.GuideDeterminationInput;
+import com.ezclassify.contract.GuideFindingDecision;
+import com.ezclassify.contract.GuideFindingDetermination;
+import com.ezclassify.contract.ProcessResult;
+import com.ezclassify.contract.ScanLimits;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
@@ -306,7 +306,9 @@ class UnknownResponseEnumConformanceTest {
                 + ",\"assertions\":["
                 + assertion
                 + "],\"errors\":[],\"warnings\":[]}"));
-    routes.put(CTX + "/access/check", envelope(RESOLUTION, "{\"granted\":true,\"rules\":[]}"));
+    routes.put(
+        CTX + "/access/check",
+        envelope(RESOLUTION, "{\"granted\":true,\"rules\":[],\"warnings\":[]}"));
     try (ClientStubServer local = new ClientStubServer(routes, "1.0.0")) {
       EzClassifyContext ctx = EzClassifyClient.connect(local.url(), "acme-ctx", "1.0.0");
       List<Assertion> data = ctx.scheme().process("H").result().assertions();

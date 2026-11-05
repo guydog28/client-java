@@ -1,14 +1,14 @@
 package com.ezclassify.rest.client;
 
-import com.ezclassify.rest.contract.ContextGuideEvaluationResult;
-import com.ezclassify.rest.contract.ContextGuideFilterRulesResult;
-import com.ezclassify.rest.contract.ContextGuideRuleDescriptionResult;
-import com.ezclassify.rest.contract.ContextGuideScanResult;
-import com.ezclassify.rest.contract.ContextGuideViewResult;
-import com.ezclassify.rest.contract.EvaluationResult;
-import com.ezclassify.rest.contract.GuideScanResult;
-import com.ezclassify.rest.contract.GuideViewResponse;
-import com.ezclassify.rest.contract.RuleDescription;
+import com.ezclassify.contract.ContextGuideEvaluationResult;
+import com.ezclassify.contract.ContextGuideFilterRulesResult;
+import com.ezclassify.contract.ContextGuideRuleDescriptionResult;
+import com.ezclassify.contract.ContextGuideScanResult;
+import com.ezclassify.contract.ContextGuideViewResult;
+import com.ezclassify.contract.EvaluationResult;
+import com.ezclassify.contract.GuideScanResult;
+import com.ezclassify.contract.GuideViewResponse;
+import com.ezclassify.contract.RuleDescription;
 import com.google.gson.JsonObject;
 
 /**

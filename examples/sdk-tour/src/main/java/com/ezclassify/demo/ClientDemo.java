@@ -1,16 +1,16 @@
 package com.ezclassify.demo;
 
+import com.ezclassify.contract.AggregateResult;
+import com.ezclassify.contract.GuideScanResult;
+import com.ezclassify.contract.ProcessResult;
+import com.ezclassify.contract.Suggestion;
+import com.ezclassify.contract.ValidateResult;
 import com.ezclassify.rest.client.ContextScheme;
 import com.ezclassify.rest.client.EzClassifyClient;
 import com.ezclassify.rest.client.EzClassifyClientException;
 import com.ezclassify.rest.client.EzClassifyContext;
 import com.ezclassify.rest.client.FactsSuggestOptions;
 import com.ezclassify.rest.client.PingResult;
-import com.ezclassify.rest.contract.AggregateResult;
-import com.ezclassify.rest.contract.GuideScanResult;
-import com.ezclassify.rest.contract.ProcessResult;
-import com.ezclassify.rest.contract.Suggestion;
-import com.ezclassify.rest.contract.ValidateResult;
 import java.util.List;
 
 /**

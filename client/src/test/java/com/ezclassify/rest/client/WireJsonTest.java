@@ -6,12 +6,12 @@ import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import com.ezclassify.rest.contract.Assertion;
-import com.ezclassify.rest.contract.DocumentAuditReport;
-import com.ezclassify.rest.contract.ProcessResult;
-import com.ezclassify.rest.contract.Reproducibility;
-import com.ezclassify.rest.contract.SourceReference;
-import com.ezclassify.rest.contract.ValidateResult;
+import com.ezclassify.contract.Assertion;
+import com.ezclassify.contract.DocumentAuditReport;
+import com.ezclassify.contract.ProcessResult;
+import com.ezclassify.contract.Reproducibility;
+import com.ezclassify.contract.SourceReference;
+import com.ezclassify.contract.ValidateResult;
 import com.google.gson.JsonNull;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;

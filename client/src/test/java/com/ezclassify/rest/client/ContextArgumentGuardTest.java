@@ -2,7 +2,7 @@ package com.ezclassify.rest.client;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-import com.ezclassify.rest.contract.Assertion;
+import com.ezclassify.contract.Assertion;
 import java.util.List;
 import java.util.Map;
 import org.junit.jupiter.api.Test;

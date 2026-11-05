@@ -1,4 +1,4 @@
-package com.ezclassify.rest.contract;
+package com.ezclassify.contract;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -35,7 +35,7 @@ class WireEnumContractTest {
   private static final String UNSEEN = "value-added-by-a-newer-server";
 
   private static List<Class<?>> compiledTypes() throws IOException {
-    Path pkg = Path.of("target/classes/com/ezclassify/rest/contract");
+    Path pkg = Path.of("target/classes/com/ezclassify/contract");
     List<Class<?>> types = new ArrayList<>();
     try (Stream<Path> files = Files.list(pkg)) {
       for (Path file : files.sorted().toList()) {

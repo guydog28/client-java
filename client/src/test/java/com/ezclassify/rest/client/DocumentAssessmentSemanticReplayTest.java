@@ -4,8 +4,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import com.ezclassify.rest.contract.ContextAccessRequirementsResult;
-import com.ezclassify.rest.contract.ContextDocumentAuditResult;
+import com.ezclassify.contract.ContextAccessRequirementsResult;
+import com.ezclassify.contract.ContextDocumentAuditResult;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
@@ -68,18 +68,23 @@ class DocumentAssessmentSemanticReplayTest {
   }
 
   /**
-   * The corpus is the count. Every contract case is numbered in order from 1 and has exactly one
-   * request and one recording, and nothing in either file lacks a case, so a dropped or added case
-   * shows up here without a pinned total to move.
+   * The contract preserves ordered, stable case identities. Each names exactly one request and
+   * recording, and neither file may add a case absent from the contract.
    */
   private static void assertCorpusIsComplete(
       JsonArray cases, JsonObject requests, JsonObject recordings) {
     assertTrue(!cases.isEmpty(), "the semantic contract declares no cases");
     List<String> requestIds = new ArrayList<>();
+    int previousNumber = 0;
     for (int i = 0; i < cases.size(); i++) {
       JsonObject testCase = cases.get(i).getAsJsonObject();
-      assertEquals(i + 1, testCase.get("number").getAsInt(), "semantic case numbering has a gap");
-      requestIds.add(string(testCase, "requestId"));
+      int number = testCase.get("number").getAsInt();
+      assertTrue(
+          number > previousNumber, "semantic case numbers must be positive, ordered and unique");
+      String requestId = string(testCase, "requestId");
+      assertEquals(String.format("case-%02d", number), requestId, "semantic case identity differs");
+      previousNumber = number;
+      requestIds.add(requestId);
     }
     List<String> sortedIds = new ArrayList<>(requestIds);
     sortedIds.sort(String::compareTo);

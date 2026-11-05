@@ -92,8 +92,8 @@ jobs:
       # the api-surface golden unreproducible.
       - name: Generator output is deterministic
         run: |
-          node types/scripts/gen.mjs vendor/spec/json-schemas types/target/regen-check/a com.ezclassify.rest.contract vendor/spec/openapi.yaml
-          node types/scripts/gen.mjs vendor/spec/json-schemas types/target/regen-check/b com.ezclassify.rest.contract vendor/spec/openapi.yaml
+          node types/scripts/gen.mjs vendor/spec/json-schemas types/target/regen-check/a com.ezclassify.contract vendor/spec/openapi.yaml
+          node types/scripts/gen.mjs vendor/spec/json-schemas types/target/regen-check/b com.ezclassify.contract vendor/spec/openapi.yaml
           diff -r types/target/regen-check/a types/target/regen-check/b
         if: ${{ needs.policy.outputs.full == 'true' }}
 

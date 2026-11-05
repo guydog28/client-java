@@ -2,10 +2,10 @@ package com.ezclassify.rest.client;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import com.ezclassify.rest.contract.Assertion;
-import com.ezclassify.rest.contract.AssertionConfidence;
-import com.ezclassify.rest.contract.ProcessingContext;
-import com.ezclassify.rest.contract.ProcessingRole;
+import com.ezclassify.contract.Assertion;
+import com.ezclassify.contract.AssertionConfidence;
+import com.ezclassify.contract.ProcessingContext;
+import com.ezclassify.contract.ProcessingRole;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;

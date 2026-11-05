@@ -1,12 +1,12 @@
 package com.ezclassify.rest.client;
 
-import com.ezclassify.rest.contract.AccessRuleDescription;
-import com.ezclassify.rest.contract.AssessmentLimitation;
-import com.ezclassify.rest.contract.ContextOperationResult;
-import com.ezclassify.rest.contract.ContextResolution;
-import com.ezclassify.rest.contract.CtxComponentDescriptor;
-import com.ezclassify.rest.contract.CtxDescribeResponseBody;
-import com.ezclassify.rest.contract.DocumentResponseProjection;
+import com.ezclassify.contract.AccessRuleDescription;
+import com.ezclassify.contract.AssessmentLimitation;
+import com.ezclassify.contract.ContextOperationResult;
+import com.ezclassify.contract.ContextResolution;
+import com.ezclassify.contract.CtxComponentDescriptor;
+import com.ezclassify.contract.CtxDescribeResponseBody;
+import com.ezclassify.contract.DocumentResponseProjection;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;

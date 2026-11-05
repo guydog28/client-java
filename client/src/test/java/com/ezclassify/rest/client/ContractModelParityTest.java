@@ -19,7 +19,7 @@ import org.junit.jupiter.api.Test;
  */
 class ContractModelParityTest {
   private static final OpenApiSchemas SPEC = OpenApiSchemas.load();
-  private static final String PACKAGE = "com.ezclassify.rest.contract.";
+  private static final String PACKAGE = "com.ezclassify.contract.";
 
   /** The wire names a record carries: its JSON field constants, or its component names. */
   private static Set<String> wireMembers(Class<?> record) {

@@ -1,6 +1,6 @@
 package com.ezclassify.rest.client;
 
-import com.ezclassify.rest.contract.ProcessingContext;
+import com.ezclassify.contract.ProcessingContext;
 
 /**
  * Immutable choices for one aggregate operation.

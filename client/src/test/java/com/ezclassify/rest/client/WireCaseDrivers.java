@@ -1,7 +1,7 @@
 package com.ezclassify.rest.client;
 
-import com.ezclassify.rest.contract.Assertion;
-import com.ezclassify.rest.contract.DocumentResponseProfile;
+import com.ezclassify.contract.Assertion;
+import com.ezclassify.contract.DocumentResponseProfile;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import java.lang.reflect.InvocationTargetException;

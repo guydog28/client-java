@@ -1,6 +1,6 @@
 package com.ezclassify.rest.client;
 
-import com.ezclassify.rest.contract.RenderPreservation;
+import com.ezclassify.contract.RenderPreservation;
 
 /**
  * Immutable choices for one render operation.

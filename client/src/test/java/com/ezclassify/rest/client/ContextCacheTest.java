@@ -5,11 +5,11 @@ import static org.junit.jupiter.api.Assertions.assertNotSame;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import com.ezclassify.rest.contract.Assertion;
-import com.ezclassify.rest.contract.AssertionConfidence;
-import com.ezclassify.rest.contract.ProcessResult;
-import com.ezclassify.rest.contract.ProcessingContext;
-import com.ezclassify.rest.contract.ProcessingRole;
+import com.ezclassify.contract.Assertion;
+import com.ezclassify.contract.AssertionConfidence;
+import com.ezclassify.contract.ProcessResult;
+import com.ezclassify.contract.ProcessingContext;
+import com.ezclassify.contract.ProcessingRole;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import java.util.ArrayList;
@@ -31,7 +31,7 @@ class ContextCacheTest {
   private static final String PROCESS_ENVELOPE =
       "{" + RESOLUTION + ",\"result\":{" + SETTLED_H + ",\"proposedFixes\":[],\"renders\":{}}}";
   private static final String DECISION =
-      "{\"resolution\":{\"contextId\":\"cache-test\",\"resolvedVersion\":\"1.0.0\",\"artifacts\":[],\"sources\":[]},\"operationLimitations\":[],\"result\":{\"granted\":true,\"rules\":[]}}";
+      "{\"resolution\":{\"contextId\":\"cache-test\",\"resolvedVersion\":\"1.0.0\",\"artifacts\":[],\"sources\":[]},\"operationLimitations\":[],\"result\":{\"granted\":true,\"rules\":[],\"warnings\":[]}}";
   private static final String TRACE_ENVELOPE =
       "{\"resolution\":{\"contextId\":\"cache-test\",\"resolvedVersion\":\"1.0.0\",\"artifacts\":[],\"sources\":[]},\"operationLimitations\":[],\"result\":{\"input\":\"H\",\"schemeId\":\"s\",\"entries\":[],\"repairs\":[],\"validationErrors\":[],\"inferences\":[],\"finalAssertions\":[],\"rendered\":\"H\"}}";
   private static final String SUGGESTIONS_ENVELOPE =

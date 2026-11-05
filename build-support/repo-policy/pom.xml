@@ -2,8 +2,8 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>com.ezclassify.rest</groupId>
-        <artifactId>sdk-parent</artifactId>
+        <groupId>com.ezclassify</groupId>
+        <artifactId>ezclassify-sdk-parent</artifactId>
         <version>1.0.0-SNAPSHOT</version>
         <relativePath>../../pom.xml</relativePath>
     </parent>

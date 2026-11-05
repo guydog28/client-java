@@ -2,10 +2,10 @@ package com.ezclassify.rest.client;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import com.ezclassify.rest.contract.AggregateResult;
-import com.ezclassify.rest.contract.Assertion;
-import com.ezclassify.rest.contract.CollectedNotice;
-import com.ezclassify.rest.contract.ExplanationTrace;
+import com.ezclassify.contract.AggregateResult;
+import com.ezclassify.contract.Assertion;
+import com.ezclassify.contract.CollectedNotice;
+import com.ezclassify.contract.ExplanationTrace;
 import com.google.gson.JsonObject;
 import java.util.List;
 import java.util.Map;

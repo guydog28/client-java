@@ -5,9 +5,9 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const handwrittenDir = path.join(root, 'types/src/main/java/com/ezclassify/rest/contract');
+const handwrittenDir = path.join(root, 'types/src/main/java/com/ezclassify/contract');
 const generatedRoot = path.join(root, 'types/target/generated-sources');
-const generatedDir = path.join(generatedRoot, 'java/com/ezclassify/rest/contract');
+const generatedDir = path.join(generatedRoot, 'java/com/ezclassify/contract');
 const errors = [];
 
 // The generator reads only the vendored contract in vendor/spec/, and tools/ stays
@@ -53,9 +53,9 @@ if (missing.length > 0) {
 const declarationPattern =
   /^\s*public\s+(?:(?:abstract|final)\s+)?(?:class|record|enum|interface)\s+([A-Za-z_$][\w$]*)/m;
 for (const name of actualHandwritten) {
-  const relative = `types/src/main/java/com/ezclassify/rest/contract/${name}.java`;
+  const relative = `types/src/main/java/com/ezclassify/contract/${name}.java`;
   const source = fs.readFileSync(path.join(root, relative), 'utf8');
-  if (!source.includes('package com.ezclassify.rest.contract;')) {
+  if (!source.includes('package com.ezclassify.contract;')) {
     errors.push(`${relative} is outside the canonical types package.`);
   }
   const declaration = source.match(declarationPattern)?.[1];
@@ -104,7 +104,7 @@ for (const file of generatedFiles) {
   const source = fs.readFileSync(file, 'utf8');
   const owner = source.match(declarationPattern)?.[1];
   const relative = path.relative(root, file);
-  if (!source.includes('package com.ezclassify.rest.contract;')) {
+  if (!source.includes('package com.ezclassify.contract;')) {
     errors.push(`${relative} is outside the canonical types package.`);
   }
   if (!owner) {

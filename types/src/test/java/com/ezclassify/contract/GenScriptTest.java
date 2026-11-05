@@ -1,4 +1,4 @@
-package com.ezclassify.rest.contract;
+package com.ezclassify.contract;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -45,7 +45,7 @@ class GenScriptTest {
                     script.toString(),
                     schemasDir.toString(),
                     outputDir.toString(),
-                    "com.ezclassify.rest.contract",
+                    "com.ezclassify.contract",
                     openapi.toString()))
             .directory(moduleDir.toFile())
             .redirectErrorStream(true)
@@ -69,7 +69,7 @@ class GenScriptTest {
                 moduleDir.resolve("scripts/gen.mjs").toString(),
                 moduleDir.resolveSibling("vendor/spec/json-schemas").toString(),
                 outputDir.toString(),
-                "com.ezclassify.rest.contract",
+                "com.ezclassify.contract",
                 moduleDir.resolveSibling("vendor/spec/openapi.yaml").toString())
             .directory(moduleDir.toFile())
             .redirectErrorStream(true)
@@ -103,7 +103,7 @@ class GenScriptTest {
                 moduleDir.resolve("scripts/gen.mjs").toString(),
                 moduleDir.resolveSibling("vendor/spec/json-schemas").toString(),
                 outputDir.toString(),
-                "com.ezclassify.rest.contract",
+                "com.ezclassify.contract",
                 moduleDir.resolveSibling("vendor/spec/openapi.yaml").toString())
             .directory(moduleDir.toFile())
             .redirectErrorStream(true)
@@ -242,7 +242,7 @@ class GenScriptTest {
                 moduleDir.resolve("scripts/gen.mjs").toString(),
                 moduleDir.resolveSibling("vendor/spec/json-schemas").toString(),
                 outputDir.toString(),
-                "com.ezclassify.rest.contract",
+                "com.ezclassify.contract",
                 moduleDir.resolveSibling("vendor/spec/openapi.yaml").toString())
             .directory(moduleDir.toFile())
             .redirectErrorStream(true)
@@ -294,7 +294,7 @@ class GenScriptTest {
                 moduleDir.resolve("scripts/gen.mjs").toString(),
                 moduleDir.resolveSibling("vendor/spec/json-schemas").toString(),
                 outputDir.toString(),
-                "com.ezclassify.rest.contract",
+                "com.ezclassify.contract",
                 ambiguousOpenapi.toString())
             .directory(moduleDir.toFile())
             .redirectErrorStream(true)
@@ -322,7 +322,7 @@ class GenScriptTest {
                   moduleDir.resolve("scripts/gen.mjs").toString(),
                   moduleDir.resolveSibling("vendor/spec/json-schemas").toString(),
                   Files.createTempDirectory("java-reserved-enum-output").toString(),
-                  "com.ezclassify.rest.contract",
+                  "com.ezclassify.contract",
                   openapi.toString())
               .directory(moduleDir.toFile())
               .redirectErrorStream(true)
@@ -349,7 +349,7 @@ class GenScriptTest {
                 moduleDir.resolve("scripts/gen.mjs").toString(),
                 moduleDir.resolveSibling("vendor/spec/json-schemas").toString(),
                 Files.createTempDirectory("java-colliding-enum-output").toString(),
-                "com.ezclassify.rest.contract",
+                "com.ezclassify.contract",
                 openapi.toString())
             .directory(moduleDir.toFile())
             .redirectErrorStream(true)
@@ -395,7 +395,7 @@ class GenScriptTest {
                 moduleDir.resolve("scripts/gen.mjs").toString(),
                 schemasDir.toString(),
                 outputDir.toString(),
-                "com.ezclassify.rest.contract",
+                "com.ezclassify.contract",
                 moduleDir.resolveSibling("vendor/spec/openapi.yaml").toString())
             .directory(moduleDir.toFile())
             .redirectErrorStream(true)
@@ -428,7 +428,7 @@ class GenScriptTest {
                 moduleDir.resolve("scripts/gen.mjs").toString(),
                 moduleDir.resolveSibling("vendor/spec/json-schemas").toString(),
                 Files.createTempDirectory("java-incompatible-union-output").toString(),
-                "com.ezclassify.rest.contract",
+                "com.ezclassify.contract",
                 openapi.toString())
             .directory(moduleDir.toFile())
             .redirectErrorStream(true)
@@ -473,7 +473,7 @@ class GenScriptTest {
                 moduleDir.resolve("scripts/gen.mjs").toString(),
                 schemasDir.toString(),
                 Files.createTempDirectory("java-mixed-union-output").toString(),
-                "com.ezclassify.rest.contract",
+                "com.ezclassify.contract",
                 moduleDir.resolveSibling("vendor/spec/openapi.yaml").toString())
             .directory(moduleDir.toFile())
             .redirectErrorStream(true)

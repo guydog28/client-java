@@ -1,12 +1,12 @@
 package com.ezclassify.rest.client;
 
-import com.ezclassify.rest.contract.AccessDecision;
-import com.ezclassify.rest.contract.AccessRequirementsDescription;
-import com.ezclassify.rest.contract.AccessRuleDescription;
-import com.ezclassify.rest.contract.Assertion;
-import com.ezclassify.rest.contract.ContextAccessDecisionResult;
-import com.ezclassify.rest.contract.ContextAccessRequirementsResult;
-import com.ezclassify.rest.contract.ContextAccessRuleDescriptionResult;
+import com.ezclassify.contract.AccessDecision;
+import com.ezclassify.contract.AccessRequirementsDescription;
+import com.ezclassify.contract.AccessRuleDescription;
+import com.ezclassify.contract.Assertion;
+import com.ezclassify.contract.ContextAccessDecisionResult;
+import com.ezclassify.contract.ContextAccessRequirementsResult;
+import com.ezclassify.contract.ContextAccessRuleDescriptionResult;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
@@ -79,8 +79,8 @@ public final class ContextAccess {
   /**
    * Checks immutable subject attributes, supplied as a map, against structured target assertions.
    *
-   * <p>A host holding subject attributes as a map can supply them directly without serializing
-   * them to JSON first.
+   * <p>A host holding subject attributes as a map can supply them directly without serializing them
+   * to JSON first.
    *
    * @param dataAssertions assertions describing the trusted target
    * @param userAttributes subject attributes

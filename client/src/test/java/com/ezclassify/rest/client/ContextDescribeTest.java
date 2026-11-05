@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import com.ezclassify.rest.contract.CtxDescribeResponseBody;
+import com.ezclassify.contract.CtxDescribeResponseBody;
 import java.util.Map;
 import org.junit.jupiter.api.Test;
 
