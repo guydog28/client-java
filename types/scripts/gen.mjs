@@ -1016,7 +1016,7 @@ function collectOpenapiRefs(name) {
 }
 OPENAPI_PUBLIC_ROOTS.forEach(collectOpenapiRefs);
 
-const handwrittenDir = new URL('../src/main/java/com/ezclassify/rest/contract/', import.meta.url);
+const handwrittenDir = new URL('../src/main/java/com/ezclassify/contract/', import.meta.url);
 const handwrittenClassNames = new Set(
   fs.readdirSync(handwrittenDir).filter((name) => name.endsWith('.java')).map((name) => name.slice(0, -5)),
 );
